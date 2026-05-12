@@ -1,0 +1,138 @@
+:root {
+  --sq: 48px;
+  --gap: 3px;
+  --pad: 14px;
+  --dur: 280ms;
+  --U: #f8f8f8;
+  --D: #ffd500;
+  --F: #00b04f;
+  --B: #0046ad;
+  --L: #ff6f00;
+  --R: #cc0000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #1a1a1f;
+  color: #ddd;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.cube {
+  position: relative;
+  width: 637px;
+  height: 484px;
+  background: #111114;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.sticker {
+  position: absolute;
+  width: var(--sq);
+  height: var(--sq);
+  border-radius: 6px;
+  box-shadow:
+    inset 0 -3px 0 rgba(0, 0, 0, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15);
+  cursor: grab;
+  transition: transform 0.08s ease;
+}
+
+.sticker:hover {
+  transform: scale(1.04);
+}
+
+.sticker:active {
+  cursor: grabbing;
+  transform: scale(0.96);
+}
+
+.sticker.hidden {
+  visibility: hidden;
+}
+
+.sticker.overlay {
+  pointer-events: none;
+  z-index: 5;
+  transition:
+    transform var(--dur) cubic-bezier(0.4, 0, 0.2, 1),
+    opacity var(--dur) ease;
+}
+
+.sticker.overlay:hover {
+  transform: none;
+}
+
+.sticker.overlay.live {
+  transition: none;
+}
+
+.c-U {
+  background: var(--U);
+}
+.c-D {
+  background: var(--D);
+}
+.c-F {
+  background: var(--F);
+}
+.c-B {
+  background: var(--B);
+}
+.c-L {
+  background: var(--L);
+}
+.c-R {
+  background: var(--R);
+}
+
+.controls {
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 9px 18px;
+  background: #2a2a32;
+  color: #eee;
+  border: 1px solid #3a3a44;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+button:hover {
+  background: #34343e;
+}
+
+button:active {
+  transform: translateY(1px);
+}
